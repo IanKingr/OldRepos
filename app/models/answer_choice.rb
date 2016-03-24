@@ -10,4 +10,8 @@ class AnswerChoice < ActiveRecord::Base
     foreign_key: :answer_choice_id,
     primary_key: :id,
     class_name: :Response
+
+  def get_user_id
+    self.question.poll.author_id
+  end
 end

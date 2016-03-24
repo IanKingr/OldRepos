@@ -10,4 +10,18 @@ class Question < ActiveRecord::Base
     foreign_key: :question_id,
     primary_key: :id,
     class_name: :AnswerChoice
+
+  has_many :responses,
+    through: :answer_choices,
+    source: :responses
+
+  def results
+    results = Hash.new{|h,k| h[k] = 0}
+
+    self.answer_choices.includes(:responses).each do| answer |
+      results[answer.text] = answer.responses.count
+    end
+
+    results
+  end
 end
