@@ -31,6 +31,13 @@ class Response < ActiveRecord::Base
       question.responses.where.not(id: id)
     end
 
+    # def no_author_respondent
+    #   if Response.joins(question: {poll: :author}).where(
+    #   {author_id: :user_id}).exists?(user_id: user_id)
+    #     errors[:user_id] << "Author may not respond."
+    #   end
+    # end
+
     def no_author_respondent
       if question_author_id == user_id
         errors[:user_id] << "Author may not respond."
@@ -39,5 +46,7 @@ class Response < ActiveRecord::Base
 
     def question_author_id
       question.poll.author.id
+      # Response.joins(question: {poll: :author}).where(
+      #   {author_id: :user_id}).exists?(user_id: user_id)
     end
 end
