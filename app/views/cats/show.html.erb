@@ -1,0 +1,14 @@
+<h1><%= @cat.name %></h1>
+<%= @cat.description %>
+<table cellpadding="10">
+  <tr>
+    <% @cat.attributes.keys.drop(1).take(5).each do |key| %>
+    <th> <%= key %> </th>
+    <% end %>
+  </tr>
+  <tr>
+    <% @cat.attributes.values.drop(1).take(5).each do |val| %>
+    <td> <%= val %> </td>
+    <% end %>
+  </tr>
+</table>

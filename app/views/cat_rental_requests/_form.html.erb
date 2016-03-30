@@ -1,0 +1,19 @@
+<% if @rental.persisted? %>
+  <form action= <%= cat_rental_request_url(@rental) %> method="post">
+    <input type="hidden" name="_method" value="patch">
+<% else %>
+  <form action="/cat_rental_requests" method="post">
+<% end %>
+
+  <input type="date" name="rental[start_date]" value= <%= @rental.start_date%>><br><br>
+
+  <input type="date" name="rental[end_date]" value= <%= @rental.end_date%>><br><br>
+
+  <select name="rental[cat_id]" id="cat_id"><br><br>
+    <% @cats.each do |cat| %>
+      <option value="<%= cat.id %>"><%= cat.id %></option>
+    <% end %>
+  </select><br><br>
+
+  <input type="submit" value="RESERVE CAT!">
+</form>
