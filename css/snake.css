@@ -1,0 +1,23 @@
+ul {
+  min-height: 250px;
+  width: 250px;
+  list-style-type: none;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+ul li {
+  width: 48px;
+  min-height: 48px;
+  border: 1px solid black;
+  float: left;
+}
+
+
+.snakebody {
+  background-color: pink;
+}
