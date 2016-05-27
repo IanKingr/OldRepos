@@ -1,0 +1,14 @@
+<h1><%= @rental.name %></h1>
+
+<table cellpadding="10">
+  <tr>
+    <% @rental.attributes.keys.drop(1).take(4).each do |key| %>
+    <th> <%= key %> </th>
+    <% end %>
+  </tr>
+  <tr>
+    <% @rental.attributes.values.drop(1).take(4).each do |val| %>
+    <td> <%= val %> </td>
+    <% end %>
+  </tr>
+</table>
